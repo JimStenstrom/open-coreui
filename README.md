@@ -33,7 +33,7 @@ Open CoreUI, a lightweight implementation of Open WebUI
 ## Features
 
 - A desktop client with a single executable download to get started
-- Use original frontend
+- Uses the original frontend
 - No Docker, Python, PostgreSQL, Redis dependencies required
 - Lower memory footprint compared to original version (much lower)
 - Lower hardware requirements compared to original version
@@ -41,7 +41,7 @@ Open CoreUI, a lightweight implementation of Open WebUI
 
 ## Download & Usage
 
-Support Windows, macOS, Linux systems, and x86_64, aarch64 architectures.
+Supports Windows, macOS, and Linux systems, with x86_64 and aarch64 architectures.
 
 Visit the [Releases](https://github.com/xxnuo/open-coreui/releases/latest) page to download the version for your system.
 
