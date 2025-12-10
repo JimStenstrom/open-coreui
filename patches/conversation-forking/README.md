@@ -2,6 +2,10 @@
 
 This patch adds conversation forking/branching functionality to open-coreui, similar to LibreChat's implementation.
 
+## Known Limitations
+
+- **Multi-model conversations**: Fork button does not appear when multiple models are used in a conversation (MultiResponseMessages component). This would require additional modifications to `MultiResponseMessages.svelte`.
+
 ## What it does
 
 - Adds a **Fork** button to both user messages and assistant responses

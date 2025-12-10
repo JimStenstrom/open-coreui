@@ -441,8 +441,8 @@
 				// For other messages, map the child that's in our chain
 				let newChildrenIds: string[] = [];
 				if (oldId !== messageId) {
-					// Find which child is in our chain
-					const childInChain = originalMsg.childrenIds.find(childId => messageIds.includes(childId));
+					// Find which child is in our chain (guard against undefined childrenIds)
+					const childInChain = (originalMsg.childrenIds ?? []).find(childId => messageIds.includes(childId));
 					if (childInChain) {
 						newChildrenIds = [oldToNewIdMap[childInChain]];
 					}

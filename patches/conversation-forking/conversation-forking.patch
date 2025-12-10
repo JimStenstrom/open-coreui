@@ -1,5 +1,5 @@
 diff --git a/svelte-frontend/src/lib/components/chat/Messages.svelte b/svelte-frontend/src/lib/components/chat/Messages.svelte
-index ab9f722..c385b86 100755
+index ab9f722..d86a798 100755
 --- a/svelte-frontend/src/lib/components/chat/Messages.svelte
 +++ b/svelte-frontend/src/lib/components/chat/Messages.svelte
 @@ -7,14 +7,16 @@
@@ -68,8 +68,8 @@ index ab9f722..c385b86 100755
 +				// For other messages, map the child that's in our chain
 +				let newChildrenIds: string[] = [];
 +				if (oldId !== messageId) {
-+					// Find which child is in our chain
-+					const childInChain = originalMsg.childrenIds.find(childId => messageIds.includes(childId));
++					// Find which child is in our chain (guard against undefined childrenIds)
++					const childInChain = (originalMsg.childrenIds ?? []).find(childId => messageIds.includes(childId));
 +					if (childInChain) {
 +						newChildrenIds = [oldToNewIdMap[childInChain]];
 +					}
