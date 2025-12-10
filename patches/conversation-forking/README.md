@@ -69,3 +69,29 @@ After applying the changes and rebuilding:
 ## Fork icon
 
 The fork button uses a reusable `Fork.svelte` icon component located in `src/lib/components/icons/`. This follows the existing pattern of icon components in the codebase (e.g., `Sparkles.svelte`, `Share.svelte`).
+
+## Architecture Notes (SOLID Analysis)
+
+The current implementation prioritizes simplicity and consistency with the existing codebase patterns. For production use, consider the refactored version in `refactored/` which provides:
+
+### Current Implementation Trade-offs
+
+| Principle | Status | Notes |
+|-----------|--------|-------|
+| Single Responsibility | Partial | Function handles multiple concerns |
+| Open/Closed | Partial | Required modifying existing files |
+| Interface Segregation | Partial | Prop drilling through components |
+| Dependency Inversion | Partial | Direct dependencies on stores/APIs |
+
+### Refactored Version (`refactored/`)
+
+The `refactored/` directory contains a SOLID-compliant version:
+
+- **`conversationForkService.ts`** - Pure domain logic (testable, no side effects)
+- **`useForkConversation.ts`** - Svelte integration layer with dependency injection
+
+Benefits of refactored version:
+- Pure functions for tree traversal and ID remapping (easily unit testable)
+- Dependency injection for all external services
+- Clear separation: Domain Logic → Service → UI
+- Mock-friendly for testing
