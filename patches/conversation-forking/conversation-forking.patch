@@ -165,10 +165,18 @@ index d2c2846..dca56ec 100755
  				{readOnly}
  				{editCodeBlock}
 diff --git a/svelte-frontend/src/lib/components/chat/Messages/ResponseMessage.svelte b/svelte-frontend/src/lib/components/chat/Messages/ResponseMessage.svelte
-index 945b576..d6f1602 100755
+index 945b576..8cfcc1d 100755
 --- a/svelte-frontend/src/lib/components/chat/Messages/ResponseMessage.svelte
 +++ b/svelte-frontend/src/lib/components/chat/Messages/ResponseMessage.svelte
-@@ -135,6 +135,7 @@
+@@ -39,6 +39,7 @@
+ 	import Spinner from '$lib/components/common/Spinner.svelte';
+ 	import WebSearchResults from './ResponseMessage/WebSearchResults.svelte';
+ 	import Sparkles from '$lib/components/icons/Sparkles.svelte';
++	import Fork from '$lib/components/icons/Fork.svelte';
+ 
+ 	import DeleteConfirmDialog from '$lib/components/common/ConfirmDialog.svelte';
+ 
+@@ -135,6 +136,7 @@
  	export let submitMessage: Function;
  	export let continueResponse: Function;
  	export let regenerateResponse: Function;
@@ -176,7 +184,7 @@ index 945b576..d6f1602 100755
  
  	export let addMessages: Function;
  
-@@ -984,6 +985,36 @@
+@@ -984,6 +986,22 @@
  									</button>
  								</Tooltip>
  
@@ -191,21 +199,7 @@ index 945b576..d6f1602 100755
 +												forkConversation(message.id);
 +											}}
 +										>
-+											<svg
-+												xmlns="http://www.w3.org/2000/svg"
-+												fill="none"
-+												aria-hidden="true"
-+												viewBox="0 0 24 24"
-+												stroke-width="2.3"
-+												stroke="currentColor"
-+												class="w-4 h-4"
-+											>
-+												<path
-+													stroke-linecap="round"
-+													stroke-linejoin="round"
-+													d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z"
-+												/>
-+											</svg>
++											<Fork className="w-4 h-4" />
 +										</button>
 +									</Tooltip>
 +								{/if}
@@ -214,10 +208,18 @@ index 945b576..d6f1602 100755
  									<Tooltip content={$i18n.t('Read Aloud')} placement="bottom">
  										<button
 diff --git a/svelte-frontend/src/lib/components/chat/Messages/UserMessage.svelte b/svelte-frontend/src/lib/components/chat/Messages/UserMessage.svelte
-index d58b9da..063a155 100755
+index d58b9da..95991cc 100755
 --- a/svelte-frontend/src/lib/components/chat/Messages/UserMessage.svelte
 +++ b/svelte-frontend/src/lib/components/chat/Messages/UserMessage.svelte
-@@ -35,6 +35,7 @@
+@@ -15,6 +15,7 @@
+ 	import Markdown from './Markdown.svelte';
+ 	import Image from '$lib/components/common/Image.svelte';
+ 	import DeleteConfirmDialog from '$lib/components/common/ConfirmDialog.svelte';
++	import Fork from '$lib/components/icons/Fork.svelte';
+ 
+ 	import localizedFormat from 'dayjs/plugin/localizedFormat';
+ 
+@@ -35,6 +36,7 @@
  
  	export let editMessage: Function;
  	export let deleteMessage: Function;
@@ -225,7 +227,7 @@ index d58b9da..063a155 100755
  
  	export let isFirstMessage: boolean;
  	export let readOnly: boolean;
-@@ -515,6 +516,34 @@
+@@ -515,6 +517,21 @@
  						</Tooltip>
  					{/if}
  
@@ -239,20 +241,7 @@ index d58b9da..063a155 100755
 +									forkConversation(message.id);
 +								}}
 +							>
-+								<svg
-+									xmlns="http://www.w3.org/2000/svg"
-+									fill="none"
-+									viewBox="0 0 24 24"
-+									stroke-width="2.3"
-+									stroke="currentColor"
-+									class="w-4 h-4"
-+								>
-+									<path
-+										stroke-linecap="round"
-+										stroke-linejoin="round"
-+										d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z"
-+									/>
-+								</svg>
++								<Fork className="w-4 h-4" />
 +							</button>
 +						</Tooltip>
 +					{/if}

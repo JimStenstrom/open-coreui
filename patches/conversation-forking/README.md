@@ -31,6 +31,7 @@ The feature leverages the existing tree-based message structure (messages have `
 - `Message.svelte` - Pass `forkConversation` to child components
 - `UserMessage.svelte` - Added Fork button UI
 - `ResponseMessage.svelte` - Added Fork button UI and prop
+- `Fork.svelte` - New icon component (place in `src/lib/components/icons/`)
 
 ## How to apply
 
@@ -48,6 +49,7 @@ git apply ../patches/conversation-forking/conversation-forking.patch
 Copy the modified `.svelte` files to their respective locations:
 
 ```bash
+cp patches/conversation-forking/Fork.svelte backend/svelte-frontend/src/lib/components/icons/
 cp patches/conversation-forking/Messages.svelte backend/svelte-frontend/src/lib/components/chat/
 cp patches/conversation-forking/Message.svelte backend/svelte-frontend/src/lib/components/chat/Messages/
 cp patches/conversation-forking/UserMessage.svelte backend/svelte-frontend/src/lib/components/chat/Messages/
@@ -66,5 +68,4 @@ After applying the changes and rebuilding:
 
 ## Fork icon
 
-The fork button uses a "share" style icon that represents branching:
-- SVG path: `M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z`
+The fork button uses a reusable `Fork.svelte` icon component located in `src/lib/components/icons/`. This follows the existing pattern of icon components in the codebase (e.g., `Sparkles.svelte`, `Share.svelte`).
